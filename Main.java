@@ -20,51 +20,55 @@ public class Main {
         // 2. 사용자 3개의 숫자 입력 , 입력받은 int를 int배열로 변환
         int n = 0;
         Scanner sc = new Scanner(System.in);
-        int[] user;
+        int[] user = new int[3];
 
         while (true) {
-            try {
-                n++;
-                System.out.println(n + "번째 시도: ");
+            n++;
+            System.out.println(n + "번째 시도: ");
 
-                int get = sc.nextInt();
-                user = Stream.of(String.valueOf(get).split("")).mapToInt(Integer::parseInt).toArray(); //int를 int배열로 변환
-                System.out.println(Arrays.toString(user)); //[int1,int2,int3]
+            String temp = sc.nextLine();
+            user = new int[temp.length()];
 
-                if (user.length == 3 || Arrays.stream(user).distinct().count() == 3) {
-                    System.out.printf("정답!");
-                    break;
-                } else {
-                    System.out.println("다시 입력하세요. 입력 값은 3자리 수여야 하며 중복 값이 없어야 합니다");
-                    n = 0;
-                }
-            } catch (InputMismatchException e) {
-                sc.nextLine();
+            for (int i = 0; i < temp.length(); i++) {
+                user[i] = temp.charAt(i) - '0';
             }
-        }
+            System.out.println(Arrays.toString(user)); //[int1,int2,int3]
 
-        int s = 0;
-        int b = 0;
-        while (true) {
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    if (user[i] == computer[j] && i == j) {
-                        s++;
-                    } else if (user[i] == computer[j] && i != j) {
-                        b++;
+            System.out.println(Arrays.stream(user).distinct().count());
+            if (user.length == 3 && Arrays.stream(user).distinct().count() == 3) {
+//                System.out.println("올바른 값을 입력했습니다");
+            } else {
+                n = 0;
+                System.out.println("다시 입력하세요. 입력 값은 3자리 수여야 하며 중복 값이 없어야 합니다");
+            }
+
+            if(n!=0) {
+                int s = 0;
+                int b = 0;
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        if (user[i] == computer[j]) {
+                            if (i == j) {
+                                s++;
+                            } else b++;
+                        }
                     }
                 }
-            }
 
-            if (s == 3) {
-                System.out.println(s + "S");
-                System.out.println(n + "번 만에 맞히셨습니다.");
-                System.out.println("게임을 종료합니다.");
-                break;
-            } else if (b == 3) {
-                System.out.println(b + "B");
-            } else {
-                System.out.println(b + "B" + s + "S");
+                if (s > 0 && b == 0) {
+                    System.out.println(s + "S");
+                } else if (b > 0 && s == 0) {
+                    System.out.println(b + "B");
+                } else {
+                    System.out.println(b + "B" + s + "S");
+                }
+
+                if (s == 3) {
+                    System.out.println(n + "번 만에 맞히셨습니다.");
+                    System.out.println("게임을 종료합니다.");
+//              sc.close();
+                    break;
+                }
             }
         }
     }
