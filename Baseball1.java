@@ -1,5 +1,3 @@
-package chap_01;
-
 import java.util.*;
 
 public class Baseball1 {
