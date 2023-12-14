@@ -1,5 +1,5 @@
 import java.util.*;
-public class Main {
+public class Baseball2 {
     public static void main(String[] args) {
         // 1. 컴퓨터 랜덤 함수 생성, 랜덤 정렬한 ArrayList를 int배열로 변환
         Set<Integer> intSet = new HashSet<>(); // HashSet 으로 생성한 intSet 에 3번 돌면서 0~9까지의 수를 중복과 순서를 고려 하지 않고 랜덤 배열 한다.(HashSet 의 특징을 이용함)
