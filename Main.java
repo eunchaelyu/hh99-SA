@@ -30,12 +30,12 @@ public class Main {
                 user[i] = temp.charAt(i) - '0'; //아스키코드 참조, temp에 있는값을 하나씩 user 배열 인덱스 순서대로 넣어줌.
             }
 //            System.out.println(Arrays.toString(user)); //[int1,int2,int3] 사용자 입력값이 배열에 잘 들어가는지 확인
-            System.out.println(Arrays.stream(user).distinct().count()); //
+//            System.out.println(Arrays.stream(user).distinct().count());
             if (user.length == 3 && Arrays.stream(user).distinct().count() == 3){ // Arrays.stream() : 스트림생성, .distinct(): 중간연산, 중복 없앰, .count(): 최종연산, 남은 자리수 카운트셈
 //                System.out.println("올바른 값을 입력했습니다");
             }else {
                 n = 0;
-                System.out.println("다시 입력하세요. 입력 값은 3자리 수여야 하며 중복 값이 없어야 합니다");
+                System.out.println("[!Error!] 다시 입력하세요. 입력 값은 3자리 수여야 하며 중복 값이 없어야 합니다");
             }
             // 3. 사용자의 입력값과 컴퓨터 랜덤값 비교 구문, 위치와 값 일치 여부에 따라 s++, b++
             if(n!=0) { //올바른 형식으로 입력했을 경우 n은 1으로 작동
