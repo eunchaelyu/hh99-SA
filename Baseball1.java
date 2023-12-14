@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Baseball1 {
     public static void main(String[] args) {
-        // 1-2. 0~9까지 중복되지 않는 랜덤한 숫자를 생성하는 함수 호출
+        // 1-2. 0~9까지 중복되지 않는 랜덤한 숫자를 생성하는 메서드 호출
         int gameCount = 0;
         int[] randomNumberArr = getRandomNumberArr();
         System.out.println(Arrays.toString(randomNumberArr));
@@ -11,9 +11,9 @@ public class Baseball1 {
         while (true) {
             ++gameCount;
             System.out.print(gameCount + "번째 시도: ");
-            // 2-2. 사용자가 입력한 숫자를 저장하는 함수 호출
+            // 2-2. 사용자가 입력한 숫자를 저장하는 메서드 호출
             int[] userNumberArr = getUserNumberArr(randomNumberArr);
-            // 3-2. 볼과 스트라이크를 판단하는 함수 호출
+            // 3-2. 볼과 스트라이크를 판단하는 메서드 호출
             int[] countNumberArr = getCountNumberArr(randomNumberArr, userNumberArr);
 
             // 3-3. 볼과 스트라이크에 여부에 따라 문장 출력
@@ -34,7 +34,7 @@ public class Baseball1 {
         }
     }
 
-    // 3-1. 볼과 스트라이크를 판단하는 함수 정의
+    // 3-1. 볼과 스트라이크를 판단하는 메서드 정의
     static int[] getCountNumberArr(int[] randomNumberArr, int[] userNumberArr) {
         int[] setCountNumberArr = new int[2];
         for (int i = 0; i < randomNumberArr.length; i++) {
@@ -51,7 +51,7 @@ public class Baseball1 {
         return setCountNumberArr;
     }
 
-    // 2-1. 사용자가 입력한 숫자를 저장하는 함수 정의
+    // 2-1. 사용자가 입력한 숫자를 저장하는 메서드 정의
     static int[] getUserNumberArr(int[] randomNumberArr) {
         int[] setUserNumberArr = new int[randomNumberArr.length];
         Scanner sc = new Scanner(System.in);
@@ -63,7 +63,7 @@ public class Baseball1 {
         return setUserNumberArr;
     }
 
-    // 1-1. 0~9까지 중복되지 않는 랜덤한 숫자를 생성하는 함수 정의
+    // 1-1. 0~9까지 중복되지 않는 랜덤한 숫자를 생성하는 메서드 정의
     static int[] getRandomNumberArr () {
         int[] setRandomNumberArr = new int[3];
         for (int i = 0; i < setRandomNumberArr.length; i++) {
