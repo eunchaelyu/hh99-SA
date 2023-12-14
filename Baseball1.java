@@ -69,7 +69,7 @@ public class Baseball1 {
     static int[] getRandomNumberArr () {
         int[] setRandomNumberArr = new int[3];
         for (int i = 0; i < setRandomNumberArr.length; i++) {
-            setRandomNumberArr[i] = ((int) (Math.random() * 10)); // randomArr[i] = ((int) (Math.random() * 10));
+            setRandomNumberArr[i] = ((int) (Math.random() * 10));
             for (int j = 0; j < i; j++) {
                 if (setRandomNumberArr[i] == setRandomNumberArr[j]) {
                     i--;
